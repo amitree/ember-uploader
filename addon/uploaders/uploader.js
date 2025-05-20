@@ -1,6 +1,5 @@
 import { Promise } from 'rsvp';
 import $ from 'jquery';
-import { assign } from '@ember/polyfills';
 import Evented from '@ember/object/evented';
 import EmberObject, { set, get } from '@ember/object';
 import { run } from '@ember/runloop';
@@ -178,7 +177,7 @@ export default EmberObject.extend(Evented, {
    * object
    */
   ajax (url, data = {}, method = this.method) {
-    const ajaxSettings = assign(
+    const ajaxSettings = Object.assign(
       {},
       {
         contentType: false,

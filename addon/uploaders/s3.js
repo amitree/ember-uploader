@@ -3,7 +3,6 @@ import { Promise } from 'rsvp';
 import { set, get } from '@ember/object';
 import { run } from '@ember/runloop';
 import Uploader from 'ember-uploader/uploaders/uploader';
-import { assign } from '@ember/polyfills';
 
 export default Uploader.extend({
   /**
@@ -73,7 +72,7 @@ export default Uploader.extend({
     extra.type = file.type;
     extra.size = file.size;
 
-    const settings = assign(
+    const settings = Object.assign(
       {},
       {
         contentType: 'application/json',
